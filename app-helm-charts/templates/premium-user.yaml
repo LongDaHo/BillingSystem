@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: premium-user-jwt
+  namespace: api-system
+  labels:
+    konghq.com/credential: jwt
+stringData:
+  algorithm: HS256
+  secret: {{ .Values.premium_user.secret }} 
+  key: {{ .Values.premium_user.key }}  
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: premium-user-acl
+  namespace: api-system
+  labels:
+    konghq.com/credential: acl
+stringData:
+  group: premium-user
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+metadata:
+  name: premium-consumer
+  namespace: api-system
+  annotations:
+    kubernetes.io/ingress.class: kong
+username: premium-consumer
+credentials:
+- premium-user-jwt
+- premium-user-acl

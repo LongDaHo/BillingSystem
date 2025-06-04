@@ -1,0 +1,12 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: jwt-auth
+  namespace: api-system
+plugin: jwt
+config:
+  secret_is_base64: false
+  uri_param_names:
+    - token
+  header_names:
+    - Authorization

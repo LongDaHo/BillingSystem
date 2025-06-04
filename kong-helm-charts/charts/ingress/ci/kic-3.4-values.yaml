@@ -1,0 +1,24 @@
+controller:
+  ingressController:
+    readinessProbe:
+      initialDelaySeconds: 1
+      periodSeconds: 1
+    env:
+      anonymous_reports: "false"
+    enabled: true
+
+    image:
+      repository: kong/nightly-ingress-controller
+      tag: "2024-12-12"
+      effectiveSemver: "3.4"
+
+    gatewayDiscovery:
+      enabled: true
+    adminApi:
+      tls:
+        client:
+          enabled: true
+
+gateway:
+  env:
+    anonymous_reports: "off"

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "enabledManagers": [
+    "custom.regex"
+  ],
+  "automerge": false,
+  "separateMinorPatch": true,
+  "labels": [
+    "dependencies"
+  ],
+  "schedule": "before 5am every weekday",
+  "customManagers": [
+    {
+      "description": "Match dependencies in .tools_verisons.yaml and .github/workflows/* that are properly annotated with `# renovate: datasource={} depName={}.`",
+      "customType": "regex",
+      "fileMatch": [
+        "\\.tools_versions\\.yaml$",
+        "\\.github/workflows/.*\\.yaml$"
+      ],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)\\n.+\"(?<currentValue>.*?)\""
+      ]
+    },
+    {
+      "description": "Match dependencies in .github/workflows/* that are properly annotated with `# renovate: datasource={} depName={}.`",
+      "customType": "regex",
+      "fileMatch": [
+        "\\.github/workflows/.*\\.yaml$"
+      ],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)\\n.+:\\s*\"?(?<currentValue>[0-9]+\\.[0-9.]+)\"?\\n"
+      ]
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Only update patch versions for selected dependencies.",
+      "matchUpdateTypes": [
+        "major",
+        "minor"
+      ],
+      "enabled": false,
+      "matchDepNames": [
+        "kindest/node"
+      ]
+    },
+    {
+      "description": "Group Kubernetes updates together.",
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "groupName": "kindest/node",
+      "matchDepNames": [
+        "kindest/node"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+normal_chat_image:
+  repository: hoanglong2410/normal-chat
+  tag: "1.0.2"
+  pullPolicy: Always
+
+stream_chat_image:
+  repository: hoanglong2410/stream-chat
+  tag: "1.0.2"
+  pullPolicy: Always
+
+stream_media_image:
+  repository: hoanglong2410/stream-media
+  tag: "1.0.2"
+  pullPolicy: Always
+
+plus_user:
+  secret: "my-secret-key"
+  key: "plus-key"
+
+pro_user:
+  secret: "my-secret-key"
+  key: "pro-key"
+
+premium_user:
+  secret: "my-secret-key"
+  key: "premium-key"
+
+pay_as_you_go_user:
+  secret: "my-secret-key"
+  key: "pay-as-you-go-key"

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>API Test</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    video {
+      width: 600px;
+      height: 400px;
+      background: #000;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>JWT Token</h1>
+  <input type="text" id="jwtInput" placeholder="Enter JWT token" style="width: 400px;" />
+  
+  <hr>
+
+  <h1>Normal Chat (REST)</h1>
+  <textarea id="chatMessages" rows="10" cols="60" readonly></textarea><br>
+  <input type="text" id="chatInput" placeholder="Type a message..." style="width: 300px;">
+  <button id="sendTextBtn">Send</button>
+
+  <hr>
+
+
+  <h1>Stream Chat (WebSocket)</h1>
+  <textarea id="streamChatMessages" rows="10" cols="60" readonly></textarea><br>
+  <input type="text" id="streamChatInput" placeholder="Type a message...">
+  <button id="sendStreamTextBtn">Send Chat</button>
+
+  <hr>
+
+  <h1>Stream Media (WebRTC)</h1>
+  <video id="video" autoplay playsinline controls></video>
+  <div>
+    <button id="connectBtn">Connect</button>
+  </div>
+
+  <script>
+    const jwtInput = document.getElementById("jwtInput");
+  </script>
+  <script src="utils.js"></script>
+  <script src="normal-chat.js"></script>
+  <script src="stream-chat.js"></script>
+  <script src="stream-media.js"></script>
+</body>
+</html>

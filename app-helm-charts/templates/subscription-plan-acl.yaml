@@ -1,0 +1,23 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: allow-plus
+plugin: acl
+config:
+  allow: ['plus-user', 'pro-user', 'premium-user', 'pay-as-you-go-user']
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: allow-pro
+plugin: acl
+config:
+  allow: ['pro-user', 'premium-user', 'pay-as-you-go-user']
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: allow-premium
+plugin: acl
+config:
+  allow: ['premium-user', 'pay-as-you-go-user']

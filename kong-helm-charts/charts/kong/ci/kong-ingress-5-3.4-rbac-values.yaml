@@ -1,0 +1,17 @@
+ingressController:
+  env:
+    anonymous_reports: "false"
+  image:
+    repository: kong/nightly-ingress-controller
+    tag: "2024-12-12"
+    effectiveSemver: "3.4"
+
+# NOTE: The purpose of those values below is to:
+# - to speed up, the test
+# - to prevent anonymous reports from being sent
+readinessProbe:
+  initialDelaySeconds: 1
+  periodSeconds: 1
+
+env:
+  anonymous_reports: "off"

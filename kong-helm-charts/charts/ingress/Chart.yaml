@@ -1,0 +1,23 @@
+apiVersion: v2
+description: Deploy Kong Ingress Controller and Kong Gateway
+home: https://konghq.com/
+icon: https://s3.amazonaws.com/downloads.kong/universe/assets/icon-kong-inc-large.png
+maintainers:
+  - name: team-k8s-bot
+    email: team-k8s@konghq.com
+name: ingress
+sources:
+  - https://github.com/Kong/charts/tree/main/charts/ingress
+version: 0.18.0
+appVersion: "3.9"
+dependencies:
+  - name: kong
+    version: "=2.47.0"
+    repository: "file:///home/hoanglong/Desktop/workspace/BillingSystem/kong-helm-charts/charts/kong"
+    alias: controller
+    condition: controller.enabled
+  - name: kong
+    version: "=2.47.0"
+    repository: "file:///home/hoanglong/Desktop/workspace/BillingSystem/kong-helm-charts/charts/kong"
+    alias: gateway
+    condition: gateway.enabled
