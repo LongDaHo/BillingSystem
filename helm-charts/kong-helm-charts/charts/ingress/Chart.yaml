@@ -13,11 +13,9 @@ appVersion: "3.9"
 dependencies:
   - name: kong
     version: "=2.47.0"
-    repository: "file:///home/hoanglong/Desktop/workspace/BillingSystem/kong-helm-charts/charts/kong"
     alias: controller
     condition: controller.enabled
   - name: kong
     version: "=2.47.0"
-    repository: "file:///home/hoanglong/Desktop/workspace/BillingSystem/kong-helm-charts/charts/kong"
     alias: gateway
     condition: gateway.enabled

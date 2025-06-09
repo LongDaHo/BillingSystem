@@ -1,7 +1,7 @@
 import jwt
 import datetime
 
-SECRET = "my-secret-key"
+SECRET = "<CONSUMER_SECRET_KEY>"
 
 def generate_jwt_token(customer_id, key):
     payload = {
@@ -14,5 +14,5 @@ def generate_jwt_token(customer_id, key):
     token = jwt.encode(payload, SECRET, algorithm="HS256")
     return token
 
-token = generate_jwt_token("pay_as_you_go_user", "plus-key")
+token = generate_jwt_token("<LAGO_USER_ID>", "<CONSUMER_KEY>")
 print(token)

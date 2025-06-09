@@ -1,0 +1,7 @@
+aiohttp==3.11.13
+aiortc==1.10.1
+structlog==25.4.0
+fastapi==0.115.12
+uvicorn==0.34.2
+pydantic==2.11.5
+lago-python-client==1.28.1

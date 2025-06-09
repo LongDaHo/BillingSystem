@@ -1,18 +1,14 @@
 apiVersion: v2
-name: api-system
-description: My Helm Chart for APIs
-
-# A chart can be `application` or `library`,
-# we don't use `library` so often
-type: application
-
-# The chart vesion, which should be changed every time
-# you make an update to the chart
-version: 1.0.0
-
-# The version number of the application being deployed
-appVersion: "1.0.0"
-
+name: billing-system
+description: A billing solution powered by Lago, Kong, and Keycloak.
 maintainers:
 - email: daohoanglong.rma@gmail.com
   name: daohoanglong
+
+type: application
+
+version: 1.0.0
+appVersion: "1.0.0"
+
+
+

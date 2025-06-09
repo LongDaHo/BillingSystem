@@ -1,30 +1,44 @@
-normal_chat_image:
-  repository: hoanglong2410/normal-chat
+normal_chat:
+  repository: hoanglong2410/billing_system
   tag: "1.0.2"
   pullPolicy: Always
+  command: ["python"]
+  args: ["/app/normal_chat.py"]
 
-stream_chat_image:
-  repository: hoanglong2410/stream-chat
+
+stream_chat:
+  repository: hoanglong2410/billing_system
   tag: "1.0.2"
   pullPolicy: Always
+  command: ["python"]
+  args: ["/app/stream_chat.py"]
 
-stream_media_image:
-  repository: hoanglong2410/stream-media
+stream_media:
+  repository: hoanglong2410/billing_system
   tag: "1.0.2"
   pullPolicy: Always
+  command: ["python"]
+  args: ["/app/media.py"]
 
-plus_user:
-  secret: "my-secret-key"
-  key: "plus-key"
+plus_consumer:
+  secret: "<CONSUMER_SECRET_KEY>"
+  key: "<CONSUMER_KEY>"
 
-pro_user:
-  secret: "my-secret-key"
-  key: "pro-key"
+pro_consumer:
+  secret: "<CONSUMER_SECRET_KEY>"
+  key: "<CONSUMER_KEY>"
 
-premium_user:
-  secret: "my-secret-key"
-  key: "premium-key"
+premium_consumer:
+  secret: "<CONSUMER_SECRET_KEY>"
+  key: "<CONSUMER_KEY>"
 
-pay_as_you_go_user:
-  secret: "my-secret-key"
-  key: "pay-as-you-go-key"
+pay_as_you_go_consumer:
+  secret: "<CONSUMER_SECRET_KEY>"
+  key: "<CONSUMER_KEY>"
+
+lago:
+  api_key: "<LAGO_API_KEY>"
+
+turn_server:
+  user: "<TURN_USER>"
+  password: "<TURN_PASSWORD>"

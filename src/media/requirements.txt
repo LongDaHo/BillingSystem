@@ -1,4 +1,0 @@
-aiohttp==3.11.13
-aiortc==1.10.1
-loguru==0.7.3
-lago-python-client==1.28.1

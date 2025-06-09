@@ -6,11 +6,11 @@ const configuration = {
   iceServers: [
     {
       urls: [
-        'turn:192.168.49.2:3478?transport=udp',
-        'turn:192.168.49.2:3478?transport=tcp'
+        'turn:<MINIKUBE_IP>:3478?transport=udp',
+        'turn:<MINIKUBE_IP>:3478?transport=tcp'
       ],
-      username: 'webrtc-user',
-      credential: 'secure-password'
+      username: '<TURN_USER>',
+      credential: '<TURN_PASSWORD>'
     }
   ]
 };
@@ -36,7 +36,8 @@ function connect() {
     pc.onicecandidate = (event) => {
       if (event.candidate) {
         ws.send(JSON.stringify({
-          type: 'ice-candidate',
+          type: 'ice_candidate',
+          customer_id: customerId,
           ice: event.candidate
         }));
       } else {
@@ -60,9 +61,9 @@ function connect() {
       handleAnswer(data);
     }
     else if (data.type === "offer"){
-      handleOffer(data);
+      handleOffer(data, customerId);
     }
-    else if (data.type === "ice-candidate"){
+    else if (data.type === "ice_candidate"){
       handleCandidate(data);
     };
   }
@@ -80,7 +81,7 @@ function handleAnswer(data) {
     });
 }
 
-async function handleOffer(data) {
+async function handleOffer(data, customerId) {
   const offer = new RTCSessionDescription({
     type: data.type,
     sdp: data.sdp
@@ -91,13 +92,12 @@ async function handleOffer(data) {
       console.log(`Error when set remote description: ${error}`);
     });
 
-  // Tạo answer
   const answer = await pc.createAnswer();
   await pc.setLocalDescription(answer);
 
-  // Gửi answer lại cho server
   ws.send(JSON.stringify({
     type: answer.type,
+    customer_id: customerId,
     sdp: answer.sdp
   }));
 }

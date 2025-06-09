@@ -2,8 +2,8 @@ version: 1.18.0
 
 # Required: Set the URLs for your API and Frontend services
 # Replace these placeholders with the actual domain names.
-apiUrl: "http://localhost:3000"
-frontUrl: "http://localhost:8080"
+apiUrl: ""   # Example: https://api.mydomain.dev
+frontUrl: ""   # Example: https://app.mydomain.dev
 
 # Only for Development, Staging or PoC, you should use a managed Redis instance for Production
 redis:
@@ -145,8 +145,8 @@ worker:
     logLevel: error
   resources:
     requests:
-      memory: 1Gi
-      cpu: "1100m"
+      memory: 512Mi
+      cpu: "512m"
   podAnnotations: {}
   podLabels: {}
   extraEnv: {}
@@ -169,8 +169,8 @@ eventsWorker:
     logLevel: error
   resources:
     requests:
-      memory: 1Gi
-      cpu: "1100m"
+      memory: 512Mi
+      cpu: "512m"
   podAnnotations: {}
   podLabels: {}
   extraEnv: {}

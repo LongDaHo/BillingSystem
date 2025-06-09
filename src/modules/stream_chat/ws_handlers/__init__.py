@@ -1,0 +1,1 @@
+from modules.stream_chat.ws_handlers.handler import websocket_handler
